@@ -1,8 +1,11 @@
 import socket
 
 servidor = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-servidor.bind(("127.0.0.1", 999))
-print("Aguardando conexão")
+try:
+    servidor.bind(("127.0.0.1", 999))
+    print("Aguardando conexão...")    
+except:
+    print("A conexão não deu certo")
 while True:
     
     msg, client = servidor.recvfrom(1024)
